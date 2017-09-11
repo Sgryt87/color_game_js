@@ -27,6 +27,7 @@ function rgbGenerator() {
   ];
   for (var i = 0; i < boxes.length; i++) {
     boxes[i].style.backgroundColor = 'rgb(' + randomColors[i] + ')';
+    boxes[i].classList.remove('hidden');
   }
   rgb.innerHTML = boxes[helperGenerator(0, 5)].style.backgroundColor;
 }
