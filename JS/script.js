@@ -11,8 +11,9 @@ var hard = document.getElementById('hard');
 var boxes = document.getElementsByClassName('box');
 var boxesOptional = document.getElementsByClassName('optional'); // hard-easy
 
-function helperGenerator (min, max) {
-  return  Math.floor(Math.random() * (max - min)) + min;
+
+function helperGenerator(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
 }
 
 function rgbGenerator() {
@@ -32,17 +33,18 @@ function rgbGenerator() {
 
 
 function boxesClick(el) {
-    var clickedBox = el.style.backgroundColor;
-    for (var i = 0; i < boxes.length; i++) {
-      if(clickedBox == rgb.innerHTML) {
-        console.log('yes'); // make all boxes tge same collor and disl=play WIN
-      } else {
-        el.classList.add('hidden') // add hiddem class , display MISS
-      }
+  var textAlert = document.getElementById('textAlert');
+  var clickedBox = el.style.backgroundColor;
+  for (var i = 0; i < boxes.length; i++) {
+    if (clickedBox == rgb.innerHTML) {
+      boxes[i].style.backgroundColor = rgb.innerHTML;
+      textAlert.innerHTML = 'You got it!';
+      console.log('yes'); // make all boxes tge same collor and disl=play WIN
+    } else {
+      el.classList.add('hidden');
+      textAlert.innerHTML = 'You missed.';
     }
-
-
-
+  }
 }
 
 
